@@ -7,10 +7,10 @@ import java.time.Duration;
 
 public class ClientHttp {
 
-    final String BASE_URL = "https://restcountries.com/v3.1";
+    static final String BASE_URL = "https://restcountries.com/v3.1";
 
 
-    private String get(String fullUrl) {
+    public String get(String fullUrl) {
 
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -38,13 +38,13 @@ public class ClientHttp {
 
     }
 
-    public  String getByName(String name){   return get(BASE_URL + "/name/" + name);
+    public  String getByName(){   return get(BASE_URL + "/all?fields=name");
     }
-    public String getByRegion(String region){   return get(BASE_URL + "/region/" + region)   ;
+    public  String getByRegion(String region){   return get(BASE_URL + "/region/" + region)   ;
     }
-    public  String getAll(){   return get(BASE_URL + "/all?fields=name,capital,currencies")  ;
+    public   String getAll(){   return get(BASE_URL + "/all?fields=name,capital,currencies,languages")  ;
     }
-    public  String getLanguage(String language){   return get(BASE_URL + "/lang/" + language );
+    public   String getByLanguage(String language){   return get(BASE_URL + "/lang/" + language );
     }
 
 }
