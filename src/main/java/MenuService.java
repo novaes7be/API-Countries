@@ -11,9 +11,10 @@ public class MenuService {
 
     do {
 
-        System.out.println("\n1 - Show all countries names");
-        System.out.println("2 - Search country by REGION");
-        System.out.println("3 - Search country by LANGUAGE");
+        System.out.println("\n");
+        System.out.println("1 - Show all countries names");
+        System.out.println("2 - List countries by REGION");
+        System.out.println("3 - List countries by LANGUAGE");
         System.out.println("4 - Get all countries name and currencies");
         System.out.println("0 - EXIT \n");
 

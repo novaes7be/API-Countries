@@ -42,7 +42,8 @@ public class ClientHttp {
     }
     public  String getByRegion(String region){   return get(BASE_URL + "/region/" + region)   ;
     }
-    public   String getAll(){   return get(BASE_URL + "/all?fields=name,capital,currencies,languages")  ;
+    public   String getAll(){
+        return get(BASE_URL + "/all?fields=name,capital,currencies,languages")  ;
     }
     public   String getByLanguage(String language){   return get(BASE_URL + "/lang/" + language );
     }

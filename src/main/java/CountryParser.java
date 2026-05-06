@@ -2,14 +2,21 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+
 public class CountryParser {
 
     public static void parseLanguage(String json) {
-        JsonArray array = JsonParser.parseString(json).getAsJsonArray();
 
-        for (int i = 0; i < array.size(); i++) {     // O(n^2)
-           String country = array.get(i).getAsJsonObject().get("name").getAsJsonObject().get("common").getAsString();
-           JsonObject language = array.get(i).getAsJsonObject().get("languages").getAsJsonObject();
+
+        JsonArray sortedArray = SortAlphabetically
+                .sortAlphabetically(JsonParser
+                        .parseString(json)
+                        .getAsJsonArray(), "name", "common");
+
+
+        for (int i = 0; i < sortedArray.size(); i++) {     // O(n^2)
+           String country = sortedArray.get(i).getAsJsonObject().get("name").getAsJsonObject().get("common").getAsString();
+           JsonObject language = sortedArray.get(i).getAsJsonObject().get("languages").getAsJsonObject();
 
             for (String key : language.keySet()) {
                 System.out.println( country +  "----" +  language.get(key).getAsString());
@@ -18,7 +25,15 @@ public class CountryParser {
     }
 
     public static void parseAll(String json) {
-        JsonArray array = JsonParser.parseString(json).getAsJsonArray();
+
+
+        JsonArray array =
+                SortAlphabetically
+                        .sortAlphabetically(JsonParser
+                                        .parseString(json)
+                                        .getAsJsonArray(),
+                                "name","common");
+
 
         for (int i = 0; i < array.size(); i++) {     // O(n^2)
             String country = array.get(i).getAsJsonObject().get("name").getAsJsonObject().get("common").getAsString();
@@ -33,16 +48,27 @@ public class CountryParser {
     }
 
     public static void parseName(String jsonName){
-        JsonArray nameArray = JsonParser.parseString(jsonName).getAsJsonArray();
 
-        for (int i = 0; i < nameArray.size(); i ++) {
-            String name = nameArray.get(i).getAsJsonObject().get("name").getAsJsonObject().get("common").getAsString();
-            System.out.println( "     "+ name);
 
+
+        JsonArray sortedArray = SortAlphabetically
+                .sortAlphabetically(JsonParser
+                        .parseString(jsonName)
+                        .getAsJsonArray(), "name", "common");
+
+        for (int i = 0; i < sortedArray.size(); i++) {
+            String name = sortedArray.get(i).getAsJsonObject().get("name").getAsJsonObject().get("common").getAsString();
+            System.out.println("     " + name);
         }
     }
+
     public static void parseRegion(String jsonRegion) {
-        JsonArray regionArray = JsonParser.parseString(jsonRegion).getAsJsonArray();
+        JsonArray regionArray =
+                SortAlphabetically
+                        .sortAlphabetically(JsonParser
+                                .parseString(jsonRegion)
+                                .getAsJsonArray(),
+                                "name","common");
 
         for (int i = 0; i < regionArray.size(); i++){
             String country = regionArray.get(i).getAsJsonObject().get("name").getAsJsonObject().get("common").getAsString();
