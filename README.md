@@ -29,10 +29,10 @@ src/main/java/
 
 | Opção | Descrição |
 |---|---|
-| 1 | Listar todos os países |
-| 2 | Buscar país por nome |
-| 3 | Buscar países por região |
-| 4 | Buscar países por idioma |
+| 1 | Listar todos os países por nome |
+| 2 | Listar países por REGIÃO |
+| 3 | Listar países por LINGUAGEM |
+| 4 | Listar todos NOMES e MOEDAS |
 | 0 | Sair |
 
 ---
