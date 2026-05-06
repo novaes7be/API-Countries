@@ -20,7 +20,8 @@ src/main/java/
 ├── Main.java           # Ponto de entrada
 ├── ClientHttp.java     # Requisições HTTP
 ├── CountryParser.java  # Parsing e exibição dos dados
-└── MenuService.java    # Menu interativo
+├── MenuService.java    # Menu interativo
+└── SortAlphabetically  # Método de ordenacão da lista
 ```
 
 ---
